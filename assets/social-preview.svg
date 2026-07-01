@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640" role="img" aria-label="agentic-loop — a self-improving loop of AI coding-agent skills">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1020"/>
+      <stop offset="1" stop-color="#151b34"/>
+    </linearGradient>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+    <style>
+      .title { fill: #f8fafc; font: 700 76px ui-sans-serif, system-ui, "Segoe UI", sans-serif; }
+      .tag   { fill: #c7d2fe; font: 500 30px ui-sans-serif, system-ui, "Segoe UI", sans-serif; }
+      .url   { fill: #7c88b1; font: 500 24px ui-monospace, Menlo, Consolas, monospace; }
+      .pill  { fill: #4f46e5; }
+      .pill2 { fill: #1e2748; stroke: #33406e; stroke-width: 1.5; }
+      .pt    { fill: #ffffff; font: 600 22px ui-monospace, Menlo, Consolas, monospace; }
+      .pt2   { fill: #aeb9e0; font: 600 21px ui-monospace, Menlo, Consolas, monospace; }
+      .edge  { stroke: #64748b; stroke-width: 2.5; fill: none; }
+      .kick  { fill: #818cf8; font: 700 22px ui-sans-serif, system-ui, sans-serif; letter-spacing: .22em; }
+    </style>
+  </defs>
+
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1280" height="6" fill="#4f46e5"/>
+
+  <text class="kick"  x="80" y="118">SELF-IMPROVING DEV LOOP</text>
+  <text class="title" x="76" y="205">agentic-loop</text>
+  <text class="tag"   x="80" y="262">Five markdown skills, one loop for AI coding agents.</text>
+  <text class="tag"   x="80" y="304">Plan · build · verify · learn — a human in the loop at every turn.</text>
+
+  <!-- flow of pills -->
+  <g transform="translate(80,392)">
+    <rect class="pill"  x="0"   y="0" width="190" height="56" rx="28"/>
+    <text class="pt"    x="95"  y="36" text-anchor="middle">/create-task</text>
+    <path class="edge"  d="M197,28 L241,28" marker-end="url(#a)"/>
+
+    <rect class="pill"  x="248" y="0" width="180" height="56" rx="28"/>
+    <text class="pt"    x="338" y="36" text-anchor="middle">/start-task</text>
+    <path class="edge"  d="M435,28 L479,28" marker-end="url(#a)"/>
+
+    <rect class="pill2" x="486" y="0" width="260" height="56" rx="28"/>
+    <text class="pt2"   x="616" y="36" text-anchor="middle">/extract-followups</text>
+    <path class="edge"  d="M753,28 L797,28" marker-end="url(#a)"/>
+
+    <rect class="pill2" x="804" y="0" width="260" height="56" rx="28"/>
+    <text class="pt2"   x="934" y="36" text-anchor="middle">/learn-and-improve</text>
+
+    <!-- return arrow: closes the loop -->
+    <path class="edge" d="M934,56 L934,90 L95,90 L95,60" marker-end="url(#a)"/>
+  </g>
+
+  <text class="url" x="80" y="558">github.com/hh21st/agentic-loop</text>
+  <text class="url" x="80" y="594" fill="#5b6690">Hamid Heydarian · MIT</text>
+</svg>

@@ -14,20 +14,9 @@ the five skills.
 
 ## The loop
 
-```
-        /create-task ──▶ tasks/todo/
-             ▲                │
-             │                ▼
-   /extract-followups ◀── /start-task ──▶ tasks/done/
-             │            (implement +
-             │             verify + tests)
-             │
-             └──────────────── memory/learnings/inbox/
-                                       │
-                                       ▼
-                               /learn-and-improve
-                       (propose edits to these skills; you approve)
-```
+<p align="center">
+  <img src="assets/loop.svg" alt="The agentic-loop cycle: /create-task feeds tasks/todo, /start-task implements and verifies into tasks/done, /extract-followups routes work back to /create-task and into memory/learnings, which /learn-and-improve drains back into the skills." width="720">
+</p>
 
 The point is not any single skill. It is that they compose into a workflow that is:
 
@@ -112,7 +101,7 @@ work was drafted as tasks, implemented, and then gated by the two-stage fresh-ey
 you see in start-task, with me approving each step. What you are reading is the distilled
 core of that larger system.
 
-Hamid Heydarian. Reach me at hh21st@yahoo.com.
+Hamid Heydarian — [LinkedIn](https://www.linkedin.com/in/hamid-heydarian-48688b24/).
 
 ## License
 

@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540" width="900" height="540" role="img" aria-label="The agentic-loop cycle: create-task feeds tasks/todo, start-task implements and verifies into tasks/done, extract-followups routes work back to create-task and into memory/learnings, which learn-and-improve drains back into the skills.">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+    <style>
+      .bg     { fill: #f8fafc; }
+      .skill  { fill: #4f46e5; }
+      .skill-t{ fill: #ffffff; font: 600 16px ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; }
+      .dir    { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.5; }
+      .dir-t  { fill: #334155; font: 600 15px ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; }
+      .sub    { fill: #cbd5f5; font: 500 12px ui-sans-serif, system-ui, sans-serif; }
+      .edge   { stroke: #94a3b8; stroke-width: 2; fill: none; }
+      .cap    { fill: #64748b; font: 600 11px ui-sans-serif, system-ui, sans-serif; letter-spacing: .08em; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="900" height="540" rx="18"/>
+
+  <!-- edges -->
+  <!-- create-task -> tasks/todo -->
+  <path class="edge" d="M280,67 L451,67" marker-end="url(#arrow)"/>
+  <!-- tasks/todo -> start-task -->
+  <path class="edge" d="M560,94 L560,164" marker-end="url(#arrow)"/>
+  <!-- start-task -> extract-followups -->
+  <path class="edge" d="M451,202 L284,202" marker-end="url(#arrow)"/>
+  <!-- start-task -> tasks/done -->
+  <path class="edge" d="M669,202 L711,202" marker-end="url(#arrow)"/>
+  <!-- extract-followups -> create-task (loop back up) -->
+  <path class="edge" d="M165,175 L165,98" marker-end="url(#arrow)"/>
+  <!-- extract-followups -> memory -->
+  <path class="edge" d="M165,229 L165,306" marker-end="url(#arrow)"/>
+  <!-- memory -> learn-and-improve -->
+  <path class="edge" d="M165,364 L165,441" marker-end="url(#arrow)"/>
+
+  <!-- nodes -->
+  <!-- create-task -->
+  <rect class="skill" x="50" y="40" width="230" height="54" rx="12"/>
+  <text class="skill-t" x="165" y="72" text-anchor="middle">/create-task</text>
+
+  <!-- tasks/todo -->
+  <rect class="dir" x="455" y="40" width="210" height="54" rx="12"/>
+  <text class="dir-t" x="560" y="72" text-anchor="middle">tasks/todo/</text>
+
+  <!-- start-task -->
+  <rect class="skill" x="455" y="168" width="214" height="68" rx="12"/>
+  <text class="skill-t" x="562" y="196" text-anchor="middle">/start-task</text>
+  <text class="sub"    x="562" y="216" text-anchor="middle">implement · verify · test</text>
+
+  <!-- tasks/done -->
+  <rect class="dir" x="715" y="175" width="150" height="54" rx="12"/>
+  <text class="dir-t" x="790" y="207" text-anchor="middle">tasks/done/</text>
+
+  <!-- extract-followups -->
+  <rect class="skill" x="50" y="175" width="234" height="54" rx="12"/>
+  <text class="skill-t" x="167" y="207" text-anchor="middle">/extract-followups</text>
+
+  <!-- memory/learnings/inbox -->
+  <rect class="dir" x="45" y="310" width="240" height="54" rx="12"/>
+  <text class="dir-t" x="165" y="342" text-anchor="middle">memory/learnings/inbox/</text>
+
+  <!-- learn-and-improve -->
+  <rect class="skill" x="45" y="445" width="240" height="54" rx="12"/>
+  <text class="skill-t" x="165" y="477" text-anchor="middle">/learn-and-improve</text>
+
+  <!-- captions -->
+  <text class="cap" x="365" y="55" text-anchor="middle">INTAKE</text>
+  <text class="cap" x="715" y="160" text-anchor="start">BUILD ▸ VERIFY</text>
+  <text class="cap" x="300" y="475" text-anchor="start">META-LOOP: propose skill edits you approve</text>
+</svg>
