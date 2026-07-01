@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+.venv/
+__pycache__/
+
+# Environment and secrets
+.env
+.env.*
+*.local
+
+# Editor and OS
+.DS_Store
+Thumbs.db
+.idea/
+*.swp
+
+# Agent scratch and logs
+.claude/settings.local.json
+*.log
+
+# Build output
+dist/
+build/
