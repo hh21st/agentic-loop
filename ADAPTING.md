@@ -49,5 +49,20 @@ real work through it, `/extract-followups` records the mistakes it makes into
 on the recurring ones. You approve each edit. Over a few weeks the skills drift toward
 fitting your project, driven by evidence rather than guesswork.
 
+Not all of that drift is yours to keep, though. Some corrections are about your stack — a
+shell that mangles a command, a test helper that deadlocks — and belong in
+`project/CONTEXT.md` under Toolchain traps, which is where `/extract-followups` routes a
+learning filed as `target_skill: project`. Others are about how an agent fails, and are true
+of any project this loop is pointed at: a test that could not fail, a claim written without
+checking, a review that stopped one round too early. Those are worth more than one repo.
+
+So record where you got these skills in `project/CONTEXT.md`, and `/learn-and-improve` Step 6
+will offer to apply the portable half back there too — diffing before it copies, checking the
+docs it contradicts, and never pushing your fork's public history without asking. Keeping the
+skill files identical to the template's makes pulling later improvements a clean fast-forward;
+it is also what forces the useful discipline of writing a rule generally instead of in your
+own stack's vocabulary.
+
 That is the wager of the whole template: you do not need it to be perfect on day one, only
-to get a little less wrong each week.
+to get a little less wrong each week — and with the portable half travelling upstream, each
+project starts less wrong than the last.

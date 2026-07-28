@@ -29,6 +29,20 @@ and the skill will skip the test run. >>>
 the formatter or linter, naming conventions, "we always do X this way", things that are
 off-limits. Keep it short and high-signal. >>>
 
+## Upstream template for the loop skills
+
+<<< If you took `.claude/commands/` from a template — agentic-loop or your own fork — record
+it here: the repo URL, where it is cloned locally, and the branch. `/learn-and-improve`
+Step 6 reads this to offer feeding its portable fixes back, so an improvement you earn here
+reaches every project you start from that template later. Without it, each repo re-learns the
+same lesson alone.
+
+Say also whether the skill files are meant to stay identical to the template's copies. Keeping
+them so makes pulling later template improvements a clean fast-forward, and it is the reason
+stack-specific facts belong under Toolchain traps below rather than inside a skill.
+
+Delete this section if this repo *is* the template — Step 6 then has nothing to do. >>>
+
 ## Toolchain traps
 
 <<< Start this empty and let the loop fill it. This is where a learning filed as

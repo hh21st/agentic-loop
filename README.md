@@ -30,6 +30,8 @@ The point is not any single skill. It is that they compose into a workflow that 
 - **self-improving** - `/learn-and-improve` reads the mistakes the loop recorded, finds
   the recurring ones, and proposes edits to the skills' own instructions. You approve each
   one. The system gets less wrong over time without ever removing the human from the call.
+  Fixes that are not specific to your project it offers to push back to the template you
+  started from, so the lesson reaches the next project too instead of dying in this repo.
 
 ## The five skills
 
@@ -39,7 +41,7 @@ The point is not any single skill. It is that they compose into a workflow that 
 | [`/create-task`](.claude/commands/create-task.md) | Turns a rough request into one self-contained task file. |
 | [`/start-task`](.claude/commands/start-task.md) | Implements a task, then verifies it with a fresh-eyes review and tests. |
 | [`/extract-followups`](.claude/commands/extract-followups.md) | Routes the follow-ups and concerns a task surfaced back into the queue. |
-| [`/learn-and-improve`](.claude/commands/learn-and-improve.md) | The meta-loop. Turns recorded mistakes into proposed skill edits you approve. |
+| [`/learn-and-improve`](.claude/commands/learn-and-improve.md) | The meta-loop. Turns recorded mistakes into proposed skill edits you approve, and offers the portable ones back to the template. |
 
 ## Quickstart
 
