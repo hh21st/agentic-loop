@@ -29,6 +29,17 @@ and the skill will skip the test run. >>>
 the formatter or linter, naming conventions, "we always do X this way", things that are
 off-limits. Keep it short and high-signal. >>>
 
+## Toolchain traps
+
+<<< Start this empty and let the loop fill it. This is where a learning filed as
+`target_skill: project` lands: a shell that mangles a command, a test helper that deadlocks
+the suite, a value the database silently normalizes. Facts about *this* stack that an agent
+has already been burned by once.
+
+Keep them here rather than in a skill. The skills are meant to stay portable, and an agent
+looking for "why did my commit message come out mangled" will look at the project notes, not
+at generic instructions. One bullet each, naming the symptom and the workaround. >>>
+
 ## Out of scope
 
 <<< Areas the loop should not touch without asking (generated files, vendored code,

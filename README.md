@@ -24,7 +24,9 @@ The point is not any single skill. It is that they compose into a workflow that 
   the cycle and the one command to run next. The workflow is legible instead of tribal.
 - **self-verifying** - `/start-task` does not trust its own first pass. It ends with an
   independent, fresh-context review that reads the diff against the spec and catches where
-  the agent is confidently wrong, plus a test run. "Done" is earned, not asserted.
+  the agent is confidently wrong, plus a test run that has been watched to *fail* before it
+  is believed - because the failure mode in practice is not a red suite, it is a green one
+  over a live bug. "Done" is earned, not asserted.
 - **self-improving** - `/learn-and-improve` reads the mistakes the loop recorded, finds
   the recurring ones, and proposes edits to the skills' own instructions. You approve each
   one. The system gets less wrong over time without ever removing the human from the call.

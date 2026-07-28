@@ -34,6 +34,14 @@ For every item, decide which bucket it belongs in:
   recur." That belongs in the memory inbox for `/learn-and-improve`, not the task queue
   (see Step 4).
 
+When something is a learning, ask **what would have to change to prevent it**. If the
+answer is a skill's instructions, target the skill. If the answer is "the agent needed to
+know a fact about this codebase or toolchain" - a shell that mangles a command, a test
+helper that deadlocks, a column the database normalizes - that is project knowledge, not a
+skill gap: target `project` so it lands in `project/CONTEXT.md`, where every skill already
+reads it. Filing a stack-specific trap against a skill is how generic instructions slowly
+fill up with one project's trivia.
+
 ## Step 3: Route tasks and concerns
 
 **For each new task**, write a `tasks/todo/` file using the `/create-task` shape - a real
@@ -61,12 +69,26 @@ memory/learnings/inbox/<YYYY-MM-DD-HHMMSS>-<slug>.md
 ```markdown
 ---
 date: <YYYY-MM-DD HH:MM:SS>
-target_skill: /start-task | /create-task | /loop | /extract-followups | /learn-and-improve
-category: pattern | skill-design | input-quality
+target_skill: /start-task | /create-task | /loop | /extract-followups | /learn-and-improve | project
+category: verification-gap | false-claim | environment | intake-gap | skill-design
 ---
 
 <One or two sentences: what went wrong and the rule that would prevent it next time.>
 ```
+
+Pick the `category` that names what let the mistake through, because that is what groups
+learnings into a fixable pattern later:
+
+- **verification-gap** - a test, review, or check passed over the defect. The single most
+  common kind, and the most valuable to collect.
+- **false-claim** - a comment, commit message, or report asserted something untrue.
+- **environment** - a shell, tool, or platform behaved other than assumed. Usually pairs
+  with `target_skill: project`.
+- **intake-gap** - the task file was underspecified or wrong going in.
+- **skill-design** - a skill's instructions have a structural hole.
+
+If everything you file ends up in one category, the field has stopped doing its job -
+say so, and `/learn-and-improve` should propose better ones.
 
 ## Step 5: Report
 

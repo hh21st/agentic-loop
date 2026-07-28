@@ -16,6 +16,13 @@ its quality.
   names real paths and existing conventions is worth ten that hand-wave.
 - If the request bundles several unrelated changes, split it: one task file per coherent
   unit of work. Say so, then create each file.
+- If the task will add or pin a dependency the project already resolves, read the
+  **installed reality** now and pin to that, not to a generic "latest stable" - check what
+  the lockfile or the installed package metadata actually resolves today. One task pinned a
+  UI framework to major 18 while the repo root already hoisted 19 through another package,
+  producing two copies of it at runtime that broke every component test plus a duplicate
+  type-definition clash - an implementation round burned that one lookup at intake would
+  have prevented.
 
 ## Step 2: Resolve the ambiguities yourself
 

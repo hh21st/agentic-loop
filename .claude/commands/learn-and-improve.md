@@ -25,7 +25,8 @@ If the inbox is empty, say "nothing to learn from yet" and stop.
 ## Step 2: Group and find patterns
 
 Read each file's frontmatter (`target_skill`, `category`) and body. Group by
-`target_skill`. Within each group, look for the signal that justifies a change:
+`target_skill`, then by `category` within it. Within each group, look for the signal that
+justifies a change:
 
 - **A recurrence**: two or more learnings describing the same class of mistake. This is
   the strongest signal - the skill has a real gap, not a one-off.
@@ -34,6 +35,25 @@ Read each file's frontmatter (`target_skill`, `category`) and body. Group by
 
 One-off vague notes with no clear fix: leave them in the inbox for now. A pattern needs
 evidence, and a fix needs to be specific enough to write down.
+
+Trust the bodies over the frontmatter. A learning is filed by whoever hit it, in the moment,
+under whichever label seemed closest - so read all of them before grouping, and regroup
+across the labels when the bodies say the same thing. Two signals to act on directly:
+
+- **A skewed distribution is itself a finding.** If almost every learning names one skill,
+  or one step inside it, that step is underspecified relative to what it claims to do - and
+  the fix is to give it a procedure, not another warning.
+- **A field that takes one value is doing no work.** If nearly everything shares a
+  `category`, do not silently ignore it - propose better values as one of your edits to
+  `/extract-followups`. The classification exists to save this reading; when it stops, fix
+  it rather than working around it.
+
+**Learnings targeting `project`** are not skill gaps - they are facts about this codebase or
+toolchain (a shell that mangles a command, a helper that deadlocks, a value the database
+normalizes). Propose those as edits to `project/CONTEXT.md`, which every skill already
+reads, and say plainly in the proposal that it edits a non-skill file. Resist the pull to
+put them in a skill: generic instructions carrying one project's trivia stop being portable,
+and a skill is the wrong place to look for them anyway.
 
 ## Step 3: Propose edits
 
