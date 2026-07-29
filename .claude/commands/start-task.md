@@ -199,7 +199,7 @@ falsify that test per Step 4 before you believe it.
     way.
 - Run `/extract-followups` to capture anything the task surfaced. It exits right away when
   there is nothing to record, so run it every time rather than judging in advance whether
-  there is something worth capturing. Then run `/loop` to see what is next.
+  there is something worth capturing. Then run `/next` to see what is next.
 
 ## The one rule
 

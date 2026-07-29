@@ -20,7 +20,7 @@ the six skills.
 
 The point is not any single skill. It is that they compose into a workflow that is:
 
-- **self-orienting** - `/loop` is a conductor. Run it and it tells you where you are in
+- **self-orienting** - `/next` is a conductor. Run it and it tells you where you are in
   the cycle and the one command to run next. The workflow is legible instead of tribal.
 - **self-verifying** - `/start-task` does not trust its own first pass. It ends with an
   independent, fresh-context review that reads the diff against the spec and catches where
@@ -42,7 +42,7 @@ The point is not any single skill. It is that they compose into a workflow that 
 
 | Skill | What it does |
 |-------|--------------|
-| [`/loop`](.claude/commands/loop.md) | The conductor. Orients you and names the next command. Start here. |
+| [`/next`](.claude/commands/next.md) | The conductor. Orients you and names the next command. Start here. |
 | [`/create-task`](.claude/commands/create-task.md) | Turns a rough request into one self-contained task file. |
 | [`/start-task`](.claude/commands/start-task.md) | Implements a task, then verifies it with a fresh-eyes review and tests. |
 | [`/extract-followups`](.claude/commands/extract-followups.md) | Routes the follow-ups and concerns a task surfaced back into the queue. |
@@ -58,7 +58,7 @@ The point is not any single skill. It is that they compose into a workflow that 
 3. Open the repo in Claude Code (or your agent of choice) and run the conductor:
 
    ```
-   /loop
+   /next
    ```
 
    It reads the queue, tells you that you are at intake, and hands you the next command.

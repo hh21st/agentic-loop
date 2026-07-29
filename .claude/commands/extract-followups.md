@@ -69,7 +69,7 @@ memory/learnings/inbox/<YYYY-MM-DD-HHMMSS>-<slug>.md
 ```markdown
 ---
 date: <YYYY-MM-DD HH:MM:SS>
-target_skill: /start-task | /create-task | /loop | /extract-followups | /learn-and-improve | project
+target_skill: /start-task | /create-task | /next | /extract-followups | /learn-and-improve | project
 category: verification-gap | false-claim | environment | intake-gap | skill-design
 ---
 
@@ -93,7 +93,7 @@ say so, and `/learn-and-improve` should propose better ones.
 ## Step 5: Report
 
 List what you routed and where: N tasks into `tasks/todo/`, M concerns into
-`project/CONCERNS.md`, L learnings into the inbox. Then hand back to `/loop`.
+`project/CONCERNS.md`, L learnings into the inbox. Then hand back to `/next`.
 
 ## Why the loop needs a drain
 

@@ -19,7 +19,7 @@ in CONTEXT.md and the skill will skip the test run and lean harder on the review
 ## 3. Wire it to your agent
 
 The skills live in `.claude/commands/` so they are directly invocable as slash-commands in
-Claude Code (`/loop`, `/create-task`, and so on). To use a different coding agent:
+Claude Code (`/next`, `/create-task`, and so on). To use a different coding agent:
 
 - Keep the skill bodies as they are. They are plain markdown instructions.
 - Change how you invoke them. Most agents can be handed a markdown file as a prompt, or you
@@ -38,7 +38,7 @@ Common changes people make:
   (owner, estimate, linked issue).
 - **Review strictness**: adjust the labels and gates in `/start-task` Step 5. Some teams
   add a security-focused third pass.
-- **When to learn**: change the threshold `/loop` uses to suggest `/learn-and-improve` (it
+- **When to learn**: change the threshold `/next` uses to suggest `/learn-and-improve` (it
   defaults to 5 unprocessed learnings).
 
 ## 5. Let the loop tune itself
@@ -81,7 +81,7 @@ time and either adopted, adapted to fit what you have, or refused.
 
 Set it up once by filling in [`project/TEMPLATE-SYNC.md`](project/TEMPLATE-SYNC.md): the
 upstream URL, which paths the template is allowed to touch, and the commit you cloned from.
-Then run `/sync-template` whenever `/loop` reports the bookmark is behind.
+Then run `/sync-template` whenever `/next` reports the bookmark is behind.
 
 Two details that matter more than they look:
 

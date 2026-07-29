@@ -155,7 +155,7 @@ were refused with what reasoning.
 
 Say: reviewed N template commits, adopted A, adapted D, skipped S, recognised O as ours, and
 name the new bookmark. Call out anything you adapted, since that is where this repo now
-knowingly differs from the template. Then hand back to `/loop`.
+knowingly differs from the template. Then hand back to `/next`.
 
 ## Why a ledger and not just a pointer
 

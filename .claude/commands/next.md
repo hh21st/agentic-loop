@@ -2,7 +2,7 @@
 description: The conductor. Orients you in the dev loop, reports queue state, and tells you the single next command to run.
 ---
 
-# /loop - the conductor
+# /next - the conductor
 
 This is the entry point. Run it whenever you are unsure what to do next. It reads the
 current state of the queue and the memory inbox, works out where you are in the cycle,
@@ -105,5 +105,5 @@ point of the loop.
 
 A pile of skills is not a workflow. The hard part of an agentic system is not any single
 step - it is knowing, at any moment, which step you are on and what comes next. The
-conductor makes the loop legible: a newcomer runs `/loop`, sees the whole cycle, and is
+conductor makes the loop legible: a newcomer runs `/next`, sees the whole cycle, and is
 never lost. It is the onboarding and the orchestration in one file.

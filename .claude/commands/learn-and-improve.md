@@ -182,7 +182,7 @@ it back.
 ## Step 7: Report
 
 Summarise: processed N learnings, proposed P edits, applied A (with the user's approval),
-deferred D, upstreamed U. Then hand back to `/loop`.
+deferred D, upstreamed U. Then hand back to `/next`.
 
 ## Why this is the capstone
 
