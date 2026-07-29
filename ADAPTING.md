@@ -1,6 +1,6 @@
 # Adapting the loop
 
-The five skills are short on purpose. They are meant to be read and edited, not treated as
+The six skills are short on purpose. They are meant to be read and edited, not treated as
 a fixed framework. Here is how to make them yours.
 
 ## 1. Fill in the one placeholder
@@ -66,3 +66,34 @@ own stack's vocabulary.
 That is the wager of the whole template: you do not need it to be perfect on day one, only
 to get a little less wrong each week — and with the portable half travelling upstream, each
 project starts less wrong than the last.
+
+## 6. Stay current without losing your changes
+
+The other half of that round trip is `/sync-template`, which pulls later improvements to these
+skills down into your copy.
+
+The reason it is a skill and not `git pull` or a file copy: by the time the template moves, you
+have edited these files too. Your `/start-task` gates reviews the way your team wants; your
+`project/CONTEXT.md` is entirely yours. Copying the template's version over the top deletes
+that, and deletes it *invisibly* — the copy reports success, and the loss only shows up weeks
+later when a step you relied on is quietly gone. So each incoming change is judged one at a
+time and either adopted, adapted to fit what you have, or refused.
+
+Set it up once by filling in [`project/TEMPLATE-SYNC.md`](project/TEMPLATE-SYNC.md): the
+upstream URL, which paths the template is allowed to touch, and the commit you cloned from.
+Then run `/sync-template` whenever `/loop` reports the bookmark is behind.
+
+Two details that matter more than they look:
+
+- **Record refusals, not just position.** A single "synced to" commit cannot express "I saw
+  that change and did not want it." Without the ledger you either advance past a refused change
+  and lose all trace of why your file differs — so the next reader treats a deliberate choice
+  as an accident — or you sit behind it and get asked about it on every run. The ledger is what
+  makes divergence a documented position instead of drift.
+- **Write down deliberate differences** under **Known local divergence**. An intentional
+  difference that is not recorded looks identical to an accidental one, and the next sync will
+  helpfully "fix" it back.
+
+If you keep the skill files identical to the template's, syncing stays close to a fast-forward
+and the two directions barely interact. That is worth aiming for — and it is exactly why
+stack-specific facts belong in `project/CONTEXT.md` rather than edited into a skill.

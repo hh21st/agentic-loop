@@ -132,20 +132,25 @@ improving itself.
 
 ## Step 6: Offer to upstream the portable edits
 
-If `project/CONTEXT.md` records an upstream template for these skills, every **portable**
-edit you just applied is also a gap that template still has - it was written from mistakes
-its own instructions allowed. Offer it: list the portable edits and ask whether to apply them
-there too. If nothing is recorded but the skills plainly came from somewhere, ask once and
-write the answer into `CONTEXT.md` so no later drain has to ask again. If this repo **is** the
-template, there is no upstream - skip this step.
+If `project/TEMPLATE-SYNC.md` records an upstream template for these skills, every
+**portable** edit you just applied is also a gap that template still has - it was written from
+mistakes its own instructions allowed. Offer it: list the portable edits and ask whether to
+apply them there too. If nothing is recorded but the skills plainly came from somewhere, ask
+once and write the answer into that file so no later drain has to ask again. If this repo
+**is** the template, there is no upstream - skip this step.
 
 With approval, for each portable edit:
 
-1. **Diff before copying.** Compare each skill file against the template's copy. Identical
-   apart from your new edit means copying the whole file is safe. If the template has
-   diverged - someone else improved it, or this repo carries a deliberate local-only change -
-   do **not** copy over it: apply your edit to the template's version instead, and report the
-   divergence rather than silently resolving it.
+1. **Fetch first, then diff before copying.** A local clone of the template can be behind its
+   own origin, and that failure looks exactly like success: you diff against a stale working
+   tree, conclude nothing but your edit differs, copy over it, and commit on a base that no
+   longer exists. So `git fetch` and confirm the clone is clean and current before reading a
+   file from it. **If there is no local clone, or it is not trustworthy, clone fresh into the
+   scratch directory** - a fresh clone cannot be stale and it costs seconds.
+   Then compare: identical apart from your new edit means copying the whole file is safe. If
+   the template has diverged - someone else improved it, or this repo carries a deliberate
+   local-only change - do **not** copy over it: apply your edit to the template's version
+   instead, and report the divergence rather than silently resolving it.
 2. **Follow the claim into the docs.** If the edit changed something the template also
    documents - a frontmatter field, a directory shape, a promise in its README - grep for it
    and update those too. An instruction that contradicts its own README is worse than the gap
@@ -161,10 +166,18 @@ With approval, for each portable edit:
 5. **Ask before pushing.** The template is likely public and shared with people who did not
    ask for your change. Commit locally, say what is waiting, and let the human decide - unless
    they have already told you to push.
+6. **Advance the bookmark, marking the commit `ours`.** Append a ledger line to
+   `project/TEMPLATE-SYNC.md` for the upstream commit you just created and move **Synced to**
+   to it. Skip this and the fix comes straight back down the next time `/sync-template` runs,
+   as an incoming template change indistinguishable from someone else's work - harmless if
+   re-applied verbatim, but a *reworded* version of your own edit silently reverts your
+   wording. The ledger is what tells the two directions apart.
 
-Finally, if the skills are meant to stay identical across the two repos, say so in
-`CONTEXT.md` and prove it with a diff at the end of every drain. Assuming they are still in
-sync is how the next drain quietly clobbers someone else's improvement.
+Finally, prove the two repos are still in sync with a diff at the end of every drain, and
+record any deliberate difference under **Known local divergence** in `TEMPLATE-SYNC.md`.
+Assuming they are still in sync is how the next drain quietly clobbers someone else's
+improvement; leaving an intentional difference unrecorded is how `/sync-template` later "fixes"
+it back.
 
 ## Step 7: Report
 

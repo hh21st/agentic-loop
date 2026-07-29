@@ -31,17 +31,15 @@ off-limits. Keep it short and high-signal. >>>
 
 ## Upstream template for the loop skills
 
-<<< If you took `.claude/commands/` from a template — agentic-loop or your own fork — record
-it here: the repo URL, where it is cloned locally, and the branch. `/learn-and-improve`
-Step 6 reads this to offer feeding its portable fixes back, so an improvement you earn here
-reaches every project you start from that template later. Without it, each repo re-learns the
-same lesson alone.
+<<< If you took `.claude/commands/` from a template — agentic-loop or your own fork — fill in
+[`TEMPLATE-SYNC.md`](TEMPLATE-SYNC.md) instead of writing the details here. That file is the
+one place `/sync-template` and `/learn-and-improve` Step 6 both read, and keeping it the only
+copy is what stops two docs disagreeing about which commit you are on.
 
-Say also whether the skill files are meant to stay identical to the template's copies. Keeping
-them so makes pulling later template improvements a clean fast-forward, and it is the reason
-stack-specific facts belong under Toolchain traps below rather than inside a skill.
+Say here only what a task author needs to know: that the skills track a template, so anything
+stack-specific belongs in this file rather than inside a skill — see Toolchain traps below.
 
-Delete this section if this repo *is* the template — Step 6 then has nothing to do. >>>
+Delete this section if this repo *is* the template. >>>
 
 ## Toolchain traps
 

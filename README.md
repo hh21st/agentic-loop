@@ -5,9 +5,9 @@ at your project, and drive real work through a cycle that plans, builds, verifie
 learns from its own mistakes, with a human in the loop at every turn.
 
 This is a GitHub template. Press **Use this template**, drop in your own project, and adapt
-the five skills.
+the six skills.
 
-> Five markdown skills, one loop. No framework to install, nothing to configure. The skills
+> Six markdown skills, one loop. No framework to install, nothing to configure. The skills
 > are written for [Claude Code](https://docs.claude.com/en/docs/claude-code) as drop-in
 > slash-commands in `.claude/commands/`, but the patterns are agent-agnostic. Adapt the
 > invocation to whatever coding agent you run.
@@ -32,8 +32,13 @@ The point is not any single skill. It is that they compose into a workflow that 
   one. The system gets less wrong over time without ever removing the human from the call.
   Fixes that are not specific to your project it offers to push back to the template you
   started from, so the lesson reaches the next project too instead of dying in this repo.
+- **self-updating** - `/sync-template` brings later template improvements back down, reviewing
+  each one against what you have already changed locally. It is not a `git pull`: your copy has
+  diverged on purpose, so every incoming change is adopted, adapted, or refused, and the
+  decision is written into `project/TEMPLATE-SYNC.md`. A refusal is recorded, so it is never
+  re-offered - which is what keeps the two directions from fighting each other.
 
-## The five skills
+## The six skills
 
 | Skill | What it does |
 |-------|--------------|
@@ -42,6 +47,7 @@ The point is not any single skill. It is that they compose into a workflow that 
 | [`/start-task`](.claude/commands/start-task.md) | Implements a task, then verifies it with a fresh-eyes review and tests. |
 | [`/extract-followups`](.claude/commands/extract-followups.md) | Routes the follow-ups and concerns a task surfaced back into the queue. |
 | [`/learn-and-improve`](.claude/commands/learn-and-improve.md) | The meta-loop. Turns recorded mistakes into proposed skill edits you approve, and offers the portable ones back to the template. |
+| [`/sync-template`](.claude/commands/sync-template.md) | Pulls the template's later improvements in, one at a time, without wiping what you changed locally. |
 
 ## Quickstart
 
@@ -72,11 +78,17 @@ The point is not any single skill. It is that they compose into a workflow that 
 A worked example task ships in [`tasks/todo/`](tasks/todo/) so you can watch one flow
 through the loop before writing your own.
 
+6. Fill in [`project/TEMPLATE-SYNC.md`](project/TEMPLATE-SYNC.md) with the commit you cloned
+   from. That is what lets `/sync-template` bring later improvements to these skills into your
+   copy without trampling the edits you have made in the meantime — and it is much easier to
+   set now than to reconstruct in six months.
+
 ## What is where
 
 ```
-.claude/commands/   the five skills (the whole system)
+.claude/commands/   the six skills (the whole system)
 project/CONTEXT.md   >>> describe your project here (the main placeholder) <<<
+project/TEMPLATE-SYNC.md   how far you have synced with this template, and what you refused
 tasks/todo|doing|done   the task queue the loop moves work through
 memory/learnings/    recorded mistakes, one file each, drained by /learn-and-improve
 ```

@@ -23,6 +23,14 @@ The loop it conducts:
                                        ▼
                                /learn-and-improve
                        (propose edits to these skills; you approve)
+                                       │
+                        portable fixes │ ▲ template improvements
+                                       ▼ │
+                              the upstream template
+                                       │
+                                /sync-template
+                     (adopt what fits, refuse what does not,
+                      record both in project/TEMPLATE-SYNC.md)
 ```
 
 ## What to do
@@ -44,6 +52,18 @@ echo "done:"  ; ls tasks/done/*.md   2>/dev/null | wc -l
 echo "unprocessed learnings:" ; ls memory/learnings/inbox/*.md 2>/dev/null | wc -l
 ```
 
+If `project/TEMPLATE-SYNC.md` exists, also read how far behind the template this repo is -
+using the last-fetched ref, without going to the network:
+
+```bash
+grep -m1 '^\*\*Synced to\*\*' project/TEMPLATE-SYNC.md
+git rev-list --count "<that sha>..template/<branch>" 2>/dev/null || echo "  (no template remote fetched)"
+```
+
+Report that count as **template: N behind**, and say plainly that it is only as fresh as the
+last fetch - `/sync-template` fetches for real. Do not fetch here: the conductor is read-only
+and instant, and a network call on every orientation would make people stop running it.
+
 ### Step 3: Decide where you are and what runs next
 
 Apply the first rule that matches, top to bottom, and recommend exactly one command:
@@ -54,7 +74,14 @@ Apply the first rule that matches, top to bottom, and recommend exactly one comm
 | `tasks/todo/` has tasks and `tasks/doing/` is empty         | ready to build       | `/start-task` (pick the highest priority)   |
 | `tasks/todo/` is empty and you have a new request in mind    | intake               | `/create-task "<your request>"`             |
 | `memory/learnings/inbox/` has 5 or more files               | time to meta-improve | `/learn-and-improve`                        |
+| the template bookmark is behind (see below)                  | template has moved   | `/sync-template`                            |
 | everything is empty                                          | idle                 | `/create-task "<your next request>"`        |
+
+The template row sits below the learnings row on purpose: pulling someone else's changes into
+the skills while your own recorded mistakes are still unprocessed means reviewing an upstream
+diff against instructions you were about to rewrite anyway. Drain first, then sync. And it
+fires on a *stale* count - if the remote has never been fetched the count is unknown, not zero,
+so mention it as unknown rather than reporting the repo up to date.
 
 `/extract-followups` is deliberately not a row here. Whether a finished task left
 follow-ups is not something you can read off the queue, so the loop does not ask the
@@ -66,7 +93,8 @@ every task (see that skill). The conductor only routes on what it can actually o
 Tell the user, in three short lines:
 
 - **Where you are**: one sentence naming the phase from the table.
-- **Queue**: `todo: N · doing: M · done: K · learnings: L`.
+- **Queue**: `todo: N · doing: M · done: K · learnings: L · template: N behind`
+  (omit the last field if this repo has no template bookmark).
 - **Next**: the single recommended command, ready to copy.
 
 Then stop. The conductor never runs the next command for the user - it hands them the
