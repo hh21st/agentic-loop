@@ -93,6 +93,15 @@ tasks/todo|doing|done   the task queue the loop moves work through
 memory/learnings/    recorded mistakes, one file each, drained by /learn-and-improve
 ```
 
+## The companion: agentic-memory
+
+This loop verifies and improves; past `memory/learnings/`, it does not remember on its own.
+[**agentic-memory**](https://github.com/hh21st/agentic-memory) is the sibling repo that adds the
+third pillar: four skills (`/capture`, `/index`, `/recall`, `/distill`) over a folder of plain
+notes, so the facts a session learns about your project survive past the session that learned
+them. Run either on its own, or both together for one story: agents that verify, improve, and
+remember themselves, with a human approving every step.
+
 ## Adapting it
 
 See [`ADAPTING.md`](ADAPTING.md) for how to tune the skills to your stack, wire them to a
