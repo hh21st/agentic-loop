@@ -29,6 +29,12 @@ Claude Code (`/next`, `/create-task`, and so on). To use a different coding agen
   that is a subagent. In a plainer setup it is a new session handed only the task file and
   the diff. Preserve that independence however your tool allows, because it is what makes
   the review catch the bugs the writer cannot see.
+- If your harness gates subagent or multi-agent tool calls behind an explicit per-call user
+  request, invoking `/start-task` is that request - Step 5 says so directly so the agent does
+  not need to re-derive consent and does not quietly fall back to self-review because a
+  generic gate misread "the user ran a skill that dispatches reviewers" as "the user did not
+  ask for this." If your harness cannot resolve that from having been invoked, have the skill
+  ask once, not skip silently.
 
 ## 4. Tune the skills to your taste
 

@@ -110,11 +110,21 @@ unmounted in the same tick. Internal-state assertions are for invariants no one 
 
 ## Step 5: Verify with fresh eyes (the part that matters)
 
+**Running this skill is the user's authorization to dispatch the subagents below.** Some
+agents gate subagent or multi-agent tool calls behind "only if the user explicitly asked for
+this." Invoking `/start-task` is that ask - it names this review as the reason the skill
+exists. Do not re-derive consent per dispatch, and do not let a generic "did the user
+request the Agent tool" check silently downgrade this step to self-review; self-review from
+the same context that wrote the code is the one failure mode this step exists to prevent. If
+your environment still blocks the dispatch and you cannot resolve that from having been
+invoked, stop and ask the user directly - do not report the task done on a review that never
+happened.
+
 Stage your changes (`git add` the files you touched) and get the diff:
 `git diff --staged`. Now run a review by someone who did **not** write the code and does
 **not** see your reasoning - only the task file and the diff. In an agent that supports
 subagents, dispatch a fresh reviewer; otherwise open a clean context and review as a
-stranger. Run it in two passes, in order:
+stranger. Run it in two passes, in order, each its own dispatch:
 
 **Pass 1 - does it match the spec?** Give the reviewer only the task file and the diff.
 Ask: does the diff satisfy every acceptance criterion? Is anything missing? Is anything
