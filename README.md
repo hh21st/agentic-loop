@@ -49,6 +49,15 @@ The point is not any single skill. It is that they compose into a workflow that 
 | [`/learn-and-improve`](.claude/commands/learn-and-improve.md) | The meta-loop. Turns recorded mistakes into proposed skill edits you approve, and offers the portable ones back to the template. |
 | [`/sync-template`](.claude/commands/sync-template.md) | Pulls the template's later improvements in, one at a time, without wiping what you changed locally. |
 
+## Adding a new skill
+
+The six above are the core cycle, not the ceiling. When a job keeps recurring - here or in
+a project cloned from this template - and deserves its own skill rather than being redone
+from scratch each time, run `/create-skill`. It writes the new skill in the same shape as
+the six: numbered steps, a closing rationale, and the same "log anything that went sideways"
+step every skill here now ends with. See [`ADAPTING.md`](ADAPTING.md) for when to reach for
+it instead of `/learn-and-improve`.
+
 ## Quickstart
 
 1. **Use this template** on GitHub, then clone your copy.

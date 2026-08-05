@@ -33,6 +33,10 @@ The loop it conducts:
                       record both in project/TEMPLATE-SYNC.md)
 ```
 
+Every skill in this diagram, not just `/extract-followups`, ends by writing straight to
+`memory/learnings/inbox/` when its own run went sideways - the diagram only draws the arrow
+where it does that in bulk, from a finished task's diff and review.
+
 ## What to do
 
 ### Step 1: Read the map
@@ -50,6 +54,7 @@ echo "todo:"  ; ls tasks/todo/*.md   2>/dev/null || echo "  (empty)"
 echo "doing:" ; ls tasks/doing/*.md  2>/dev/null || echo "  (empty)"
 echo "done:"  ; ls tasks/done/*.md   2>/dev/null | wc -l
 echo "unprocessed learnings:" ; ls memory/learnings/inbox/*.md 2>/dev/null | wc -l
+echo "working tree:" ; git status --short
 ```
 
 If `project/TEMPLATE-SYNC.md` exists, also read how far behind the template this repo is -
@@ -90,16 +95,55 @@ every task (see that skill). The conductor only routes on what it can actually o
 
 ### Step 4: Report
 
-Tell the user, in three short lines:
+Tell the user, in four short lines:
 
 - **Where you are**: one sentence naming the phase from the table.
 - **Queue**: `todo: N · doing: M · done: K · learnings: L · template: N behind`
   (omit the last field if this repo has no template bookmark).
+- **Close**: `yes`, or `no - <the specific thing outstanding>`. See the close check below.
 - **Next**: the single recommended command, ready to copy.
 
 Then stop. The conductor never runs the next command for the user - it hands them the
 baton. Running one command at a time, with a human able to redirect between each, is the
 point of the loop.
+
+### The close check
+
+Answer this every time, not just when asked "is it safe to close" or "green light to
+close" - those phrases should get the same line you would have reported anyway, not a
+separate path.
+
+**Close: yes** only if both hold:
+- `tasks/doing/` is empty - nothing is claimed and mid-flight with no one owning it.
+- `git status --short` is clean - nothing sits uncommitted where the next session (or the
+  next agent in this one) won't see it.
+
+Otherwise **Close: no**, and name the exact thing outstanding - the task file still in
+`tasks/doing/`, or the specific paths `git status` shows dirty. Do not round a partial state
+up to "basically done."
+
+A non-zero learnings count does **not** block close - that queue drains on its own schedule
+(`/learn-and-improve` at 5+), and every skill now logs to it as it goes rather than saving it
+for the end. Mention the count in the Queue line; it is information, not a blocker.
+
+## Step 5: Log anything that went sideways
+
+This is about running `/next` itself - a queue count that didn't match what you expected, a
+row in the Step 3 table that fired on the wrong condition, a close check that gave the wrong
+answer. Write it down now, even if you already worked around it:
+
+```markdown
+memory/learnings/inbox/<YYYY-MM-DD-HHMMSS>-<slug>.md
+---
+date: <YYYY-MM-DD HH:MM:SS>
+target_skill: /next | project
+category: verification-gap | false-claim | environment | intake-gap | skill-design
+---
+
+<One or two sentences: what happened, and the rule or better way that would prevent it next time.>
+```
+
+Most runs have nothing to record - do not manufacture one.
 
 ## Why a conductor exists
 

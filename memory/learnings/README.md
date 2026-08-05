@@ -2,7 +2,9 @@
 
 This is the loop's memory of its own mistakes. Each file in `inbox/` is one recorded
 learning: a place the agent got something wrong, and the rule that would prevent it next
-time. `/extract-followups` writes them; `/learn-and-improve` drains them.
+time. Every skill writes here as its last or second-to-last step, whenever running it went
+sideways or turned up a better way - `/extract-followups` additionally does it in bulk for
+what a finished task's diff and review surfaced. `/learn-and-improve` drains them all.
 
 ## Why one file per learning
 
@@ -41,7 +43,7 @@ anything, and `/learn-and-improve` should be told to propose better values.
 ## The lifecycle
 
 ```
-inbox/            written by /extract-followups, waiting to be reviewed
+inbox/            written by whichever skill hit the learning, waiting to be reviewed
    │
    ▼  /learn-and-improve finds the pattern, proposes a skill edit, you approve
 processed/        moved here once acted on, kept as the audit trail

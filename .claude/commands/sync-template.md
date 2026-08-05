@@ -147,7 +147,7 @@ the skip - that is why the pointer is safe to move and why a bare watermark is n
 its own.
 
 Commit the merged files and the updated bookmark **together**, with the same index discipline
-as `/start-task` Step 7 (`git diff --staged --stat`, `git commit --only <paths>`, read back
+as `/start-task` Step 8 (`git diff --staged --stat`, `git commit --only <paths>`, read back
 with `git log -1`). One commit, so the history shows which upstream changes arrived and which
 were refused with what reasoning.
 
@@ -156,6 +156,27 @@ were refused with what reasoning.
 Say: reviewed N template commits, adopted A, adapted D, skipped S, recognised O as ours, and
 name the new bookmark. Call out anything you adapted, since that is where this repo now
 knowingly differs from the template. Then hand back to `/next`.
+
+## Step 8: Log anything that went sideways
+
+This is about running `/sync-template` itself, not about the individual adopt/adapt/skip
+calls you just made (the ledger already records those and why). Did the merge machinery in
+Step 4 do something unexpected? Did a conflict need a rule this file doesn't state? Write it
+down now:
+
+```markdown
+memory/learnings/inbox/<YYYY-MM-DD-HHMMSS>-<slug>.md
+---
+date: <YYYY-MM-DD HH:MM:SS>
+target_skill: /sync-template | project
+category: verification-gap | false-claim | environment | intake-gap | skill-design
+---
+
+<One or two sentences: what happened, and the rule or better way that would prevent it next time.>
+```
+
+Most runs have nothing to record - do not manufacture one. Skip it silently and the loop
+stops getting better.
 
 ## Why a ledger and not just a pointer
 

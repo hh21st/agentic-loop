@@ -95,6 +95,27 @@ say so, and `/learn-and-improve` should propose better ones.
 List what you routed and where: N tasks into `tasks/todo/`, M concerns into
 `project/CONCERNS.md`, L learnings into the inbox. Then hand back to `/next`.
 
+## Step 6: Log anything that went sideways
+
+This is about running `/extract-followups` itself, not the task it just triaged - that
+already went to the inbox in Step 4. Did the sorting rules in Step 2 not fit something you
+had to route? Did a category feel wrong for what you were filing? Even if you worked around
+it in the moment, write it down now:
+
+```markdown
+memory/learnings/inbox/<YYYY-MM-DD-HHMMSS>-<slug>.md
+---
+date: <YYYY-MM-DD HH:MM:SS>
+target_skill: /extract-followups | project
+category: verification-gap | false-claim | environment | intake-gap | skill-design
+---
+
+<One or two sentences: what happened, and the rule or better way that would prevent it next time.>
+```
+
+Most runs have nothing to record - do not manufacture one. This is what feeds
+`/learn-and-improve`; skip it silently and the loop stops getting better.
+
 ## Why the loop needs a drain
 
 A workflow that only ever consumes tasks and never files new ones is a dead end - it runs

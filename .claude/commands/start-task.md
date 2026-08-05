@@ -186,7 +186,31 @@ modes recur:
 Then prove the fix with a test that asserts the bad side effect did NOT happen - and
 falsify that test per Step 4 before you believe it.
 
-## Step 7: Close out
+## Step 7: Log anything that went sideways
+
+This is about running `/start-task` itself - the process, not the task. `/extract-followups`,
+which Step 8 below calls, already routes what the diff and review surfaced about *the task*;
+this is narrower:
+did a step in this skill's own instructions mislead you, assume something this codebase
+doesn't have, or turn out to need a technique these instructions don't mention (a mutation
+that needed a different restore path, a reviewer prompt that missed an exploit class until
+the fourth round)? Even if you already adapted on the fly, write it down now:
+
+```markdown
+memory/learnings/inbox/<YYYY-MM-DD-HHMMSS>-<slug>.md
+---
+date: <YYYY-MM-DD HH:MM:SS>
+target_skill: /start-task | project
+category: verification-gap | false-claim | environment | intake-gap | skill-design
+---
+
+<One or two sentences: what happened, and the rule or better way that would prevent it next time.>
+```
+
+Most runs have nothing to record - do not manufacture one. Skip it silently and this loop
+stops getting better.
+
+## Step 8: Close out
 
 - Set `**Status**: done`, add a one-line Progress note, and move the file to `tasks/done/`.
 - Commit the change with a message naming the task. Commit mechanics, each of which has
@@ -207,7 +231,7 @@ falsify that test per Step 4 before you believe it.
   - **Read the commit back.** `git log -1` and `git status` after committing. A malformed
     message and a swallowed index are both invisible from the exit code, which is 0 either
     way.
-- Run `/extract-followups` to capture anything the task surfaced. It exits right away when
+- Run `/extract-followups` to capture anything the task itself surfaced. It exits right away when
   there is nothing to record, so run it every time rather than judging in advance whether
   there is something worth capturing. Then run `/next` to see what is next.
 

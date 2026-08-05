@@ -103,3 +103,25 @@ Two details that matter more than they look:
 If you keep the skill files identical to the template's, syncing stays close to a fast-forward
 and the two directions barely interact. That is worth aiming for — and it is exactly why
 stack-specific facts belong in `project/CONTEXT.md` rather than edited into a skill.
+
+## 7. Add a new skill, rather than edit one to do two jobs
+
+`/learn-and-improve` only ever edits the six skills that already exist — it has no way to
+decide a job deserves a seventh. When you hit a recurring job that does not fit cleanly
+inside any existing skill, run `/create-skill` instead of writing a markdown file by hand or
+bolting an unrelated step onto one of the six. It reads the current shape of the skills
+already in `.claude/commands/` and writes the new one to match: numbered steps, a closing
+"why", and the same "log anything that went sideways" step every skill here ends with — so
+the new skill starts consistent with the rest of the loop instead of drifting from day one.
+
+If the job needs bundled files (a script, a state file that persists across runs), it
+scaffolds a folder-based Agent Skill instead of a flat command file. Note this is a
+different case from `/run-skill-generator`, Claude Code's own built-in for capturing how to
+install and launch *this specific project* as a skill under `.claude/skills/run-<unit>/` -
+if the recurring job is "how do we build and run this thing," reach for that directly rather
+than routing it through `/create-skill`.
+
+Because `.claude/commands/*.md` is a tracked path in `project/TEMPLATE-SYNC.md`, a skill
+created this way is already shaped to travel cleanly through `/sync-template` in both
+directions — which a hand-written one, styled however its author happened to write it that
+day, is not.

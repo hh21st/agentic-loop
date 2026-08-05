@@ -72,6 +72,28 @@ Re-read the file as if you were the implementer and had never seen the request. 
 
 Fix anything that fails, then report the created path(s) and suggest `/start-task` next.
 
+## Step 5: Log anything that went sideways
+
+Before you finish, ask: did anything about running `/create-task` just now go differently
+than these instructions assumed - a request that didn't fit the shape, a convention you had
+to guess at, a shortcut you found that these instructions should have told you to take? Even
+if you already worked around it, write it down now rather than trusting yourself to remember
+it later:
+
+```markdown
+memory/learnings/inbox/<YYYY-MM-DD-HHMMSS>-<slug>.md
+---
+date: <YYYY-MM-DD HH:MM:SS>
+target_skill: /create-task | project
+category: verification-gap | false-claim | environment | intake-gap | skill-design
+---
+
+<One or two sentences: what happened, and the rule or better way that would prevent it next time.>
+```
+
+Most runs have nothing to record - do not manufacture one. This is what feeds
+`/learn-and-improve`; skip it silently and the loop stops getting better.
+
 ## Why intake is its own step
 
 Separating "decide what to do" from "do it" keeps each cheap. When the task is written

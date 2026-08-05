@@ -159,7 +159,7 @@ With approval, for each portable edit:
    dependencies, and platform words. Anything that survives was a local proposal mislabelled
    portable - pull it back out.
 4. **Commit in the template separately**, checking that repo's index is yours first
-   (`git diff --staged --stat`), exactly as in `/start-task` Step 7. Frame the message as
+   (`git diff --staged --stat`), exactly as in `/start-task` Step 8. Frame the message as
    feedback from a downstream project and say what the loop actually got wrong, with the
    numbers: the template's history should carry the evidence, not just the edit. That is what
    lets a future reader judge whether the change was warranted.
@@ -183,6 +183,28 @@ it back.
 
 Summarise: processed N learnings, proposed P edits, applied A (with the user's approval),
 deferred D, upstreamed U. Then hand back to `/next`.
+
+## Step 8: Log anything that went sideways
+
+This is about running `/learn-and-improve` itself - the grouping heuristics in Step 2, the
+local/portable split in Step 3, the upstreaming mechanics in Step 6 - not about the skill
+files you just edited (those edits are already the record). Did a pattern not fit the
+recurrence-vs-single-insight test? Did the template diff in Step 6 surprise you? Write it
+down now:
+
+```markdown
+memory/learnings/inbox/<YYYY-MM-DD-HHMMSS>-<slug>.md
+---
+date: <YYYY-MM-DD HH:MM:SS>
+target_skill: /learn-and-improve | project
+category: verification-gap | false-claim | environment | intake-gap | skill-design
+---
+
+<One or two sentences: what happened, and the rule or better way that would prevent it next time.>
+```
+
+Most runs have nothing to record - do not manufacture one. Skip it silently and this loop
+stops improving itself.
 
 ## Why this is the capstone
 
